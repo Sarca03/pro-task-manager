@@ -1,47 +1,49 @@
 # ProTask
 
-PHP aplikacija za lične zadatke: prioriteti, rokovi, pretraga i pregled napretka.
-Svaki korisnik vidi samo svoje zadatke, admin vidi listu korisnika.
-Nov nalog dobija nekoliko primera zadataka.
+A PHP app for personal tasks: priorities, due dates, search and progress overview.
+Every user sees only their own tasks, the admin sees the list of users.
+A new account gets a few sample tasks.
 
-Uživo: https://pro-task-manager-vryi.onrender.com (besplatan Render server, prvo otvaranje traje oko pola minuta)
+Live: https://pro-task-manager-vryi.onrender.com (free Render server, the first visit takes about half a minute)
 
-## Šta radi
+The interface is in Serbian.
 
-- Registracija i prijava (lozinke preko `password_hash`)
-- Dodavanje, izmena, brisanje i označavanje zadataka kao završenih
-- Prioriteti (nizak, srednji, visok) i rokovi, zadatak koji kasni je označen
-- Pregled: ukupno, u toku, hitno, završeno, rokovi za narednih 7 dana i procenat završenog
-- Pretraga i filteri (svi, u toku, hitno, završeni)
-- Admin panel: svi korisnici, broj njihovih zadataka i brisanje naloga
+## What it does
 
-## Bezbednost
+- Sign up and login (passwords with `password_hash`)
+- Add, edit, delete and mark tasks as done
+- Priorities (low, medium, high) and due dates, overdue tasks are marked
+- Overview: total, in progress, urgent, done, due in the next 7 days and percent done
+- Search and filters (all, in progress, urgent, done)
+- Admin panel: all users, how many tasks each has, and deleting accounts
 
-Upiti idu preko PDO prepared statements, forme imaju CSRF token, lozinke su heširane.
-Svako vidi i menja samo svoje zadatke, a adresa baze je u `DATABASE_URL`, ne u kodu.
+## Security
 
-## Tehnologije
+Queries go through PDO prepared statements, forms have a CSRF token, passwords are hashed.
+Everyone sees and changes only their own tasks, and the database address is in `DATABASE_URL`, not in the code.
 
-PHP 8.3 (PDO), PostgreSQL (Neon), Apache u Docker-u (Render), čist CSS bez frameworka, SVG ikonice ugrađene u kod.
+## Stack
 
-## Objavljivanje (Neon + Render)
+PHP 8.3 (PDO), PostgreSQL (Neon), Apache in Docker (Render), plain CSS without a framework, inline SVG icons.
 
-1. Na [Neon](https://neon.tech)-u napravi bazu i kopiraj connection string (`postgresql://...?sslmode=require`).
-2. Na [Render](https://render.com)-u napravi Web Service iz ovog repozitorijuma; Render sam nađe `Dockerfile`.
-3. U Environment dodaj:
-   - `DATABASE_URL`: connection string sa Neon-a
-   - `ADMIN_USERNAME`: korisničko ime koje će biti admin
-4. Tabele se prave same pri startu (`bin/migrate.php`).
-5. Registruj se pod imenom iz `ADMIN_USERNAME` i taj nalog postaje admin.
+## Deploying (Neon + Render)
 
-## Lokalno
+1. Create a database on [Neon](https://neon.tech) and copy the connection string (`postgresql://...?sslmode=require`).
+2. Create a Web Service on [Render](https://render.com) from this repo; Render finds the `Dockerfile` on its own.
+3. Add to Environment:
+   - `DATABASE_URL`: the Neon connection string
+   - `ADMIN_USERNAME`: the username that will be admin
+4. Tables are created on startup (`bin/migrate.php`).
+5. Sign up with the name from `ADMIN_USERNAME` and that account becomes admin.
+
+## Running locally
 
 ```bash
-export DATABASE_URL="postgresql://korisnik:lozinka@localhost:5432/task_manager?sslmode=disable"
+export DATABASE_URL="postgresql://user:password@localhost:5432/task_manager?sslmode=disable"
 php bin/migrate.php
-ADMIN_USERNAME=tvoje_ime php -S localhost:8000
+ADMIN_USERNAME=your_name php -S localhost:8000
 ```
 
-## Autor
+## Author
 
-Bogdan Šarčević
+Bogdan Šarčević, Užice, Serbia
