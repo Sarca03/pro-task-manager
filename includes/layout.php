@@ -13,7 +13,6 @@ const ICONS = [
     'clear'        => '<path d="M7 7l10 10M17 7L7 17"/>',
     'close'        => '<path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/>',
     'dots'         => '<circle cx="5.5" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="18.5" cy="12" r="1.4" fill="currentColor"/>',
-    'menu'         => '<circle cx="12" cy="5.5" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="18.5" r="1.4" fill="currentColor"/>',
     'circle'       => '<circle cx="12" cy="12" r="8" stroke-dasharray="3 2.6"/>',
     'fire'         => '<path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.2 3.6-8.3 2 1.4 2.7 3 2.9 4.6 1-.7 1.6-1.9 1.7-3.3 2.5 2 4.8 4.3 4.8 7.2 0 3.5-2.6 6-6.5 6z"/>',
     'bolt'         => '<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',

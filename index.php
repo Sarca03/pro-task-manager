@@ -102,7 +102,7 @@ layout_start('Pregled', 'tasks', $isAdmin);
 
 <section class="row3">
     <article class="panel panel--dark">
-        <div class="panel__head"><h2>Pregled</h2><?= icon('menu') ?></div>
+        <div class="panel__head"><h2>Pregled</h2></div>
         <div class="big-stats">
             <div><strong><?= $total ?></strong><span><?= plural($total, 'zadatak', 'zadatka', 'zadataka') ?><br>ukupno</span></div>
             <div class="sep"></div>
